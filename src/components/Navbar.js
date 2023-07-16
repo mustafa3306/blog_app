@@ -4,11 +4,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-
+import { GiAngelWings } from "react-icons/gi";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -17,17 +16,25 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
+    textAlign: "center",
     display: "none",
     fontFamily: "Girassol",
     [theme.breakpoints.up("sm")]: {
       display:"block",
     },
     "& span": {
+      fontFamily: "'Tektur', cursive",
       fontSize: 30,
-      color: "wheat",
+      color: "lightgray " 
     },
     flexGrow: 1,
   },
+  appBar:{
+    backgroundColor: "#046227"
+  },
+  logo:{
+    width: 40,
+  }
 }));
 
 export default function MenuAppBar() {
@@ -46,13 +53,13 @@ export default function MenuAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appBar}>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
+          <GiAngelWings style={{width: 35}} />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Mustagram
+            <span>mustAgram</span>
           </Typography>
           
             <div>
@@ -63,7 +70,7 @@ export default function MenuAppBar() {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <AccountCircle />
+                <AccountCircle style={{fontSize: "40px"}}/>
               </IconButton>
               <Menu
                 id="menu-appbar"
